@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { db } from "../firebaseConfig";
+import { db, auth } from "../firebaseConfig";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import {
   IonContent,
@@ -28,6 +28,10 @@ const CheckIn: React.FC = () => {
   const [freeWrite, setFreeWrite] = useState("");
 
   const handleSubmit = async () => {
+    if (!auth.currentUser) {
+      alert("Please log in to save your check in.");
+      return;
+    }
     try {
       await addDoc(collection(db, "checkins"), {
         mood,
@@ -37,6 +41,7 @@ const CheckIn: React.FC = () => {
         stress,
         freeWrite,
         createdAt: Timestamp.now(),
+        userId: auth.currentUser?.uid,
       });
       alert("check in saved!");
     } catch (error) {
@@ -65,9 +70,12 @@ const CheckIn: React.FC = () => {
                 key={m.label}
                 fill={mood === m.label ? "solid" : "outline"}
                 onClick={() => setMood(m.label)}
+                size="small"
               >
-                <span>{m.emoji}</span>
-                <IonLabel>{m.label}</IonLabel>
+                <div className="mood-button-inner">
+                  <span className="mood-emoji">{m.emoji}</span>
+                  <span>{m.label}</span>
+                </div>
               </IonButton>
             ))}
           </div>

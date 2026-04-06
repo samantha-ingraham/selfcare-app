@@ -1,0 +1,21 @@
+.mood-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+}
+
+.mood-button-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.55rem;
+  color: var(--ion-text-color);
+  margin-bottom: 2px;
+}
+
+.mood-emoji {
+  font-size: 1rem;
+  color: var(--ion-text-color);
+}

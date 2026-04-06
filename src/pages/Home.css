@@ -1,0 +1,14 @@
+.day-card {
+  margin: 2px;
+}
+
+ion-grid {
+  --ion-grid-column-padding: 2px;
+}
+
+.day-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+}

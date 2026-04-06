@@ -1,0 +1,5 @@
+ion-textarea {
+  border: 1px solid var(--ion-color-medium);
+  border-radius: 8px;
+  padding: 8px;
+}

@@ -1,0 +1,18 @@
+.scheme-card {
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+.swatch-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.swatch {
+  flex: 1;
+}
